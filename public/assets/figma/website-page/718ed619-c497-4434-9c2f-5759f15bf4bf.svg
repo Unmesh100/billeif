@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 1224 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1948754863">
+<g id="Gradient" filter="url(#filter0_f_0_4)">
+<circle cx="511" cy="511" r="262" fill="var(--fill-0, #FC6868)"/>
+</g>
+<g id="Gradient_2" filter="url(#filter1_f_0_4)">
+<circle cx="721.5" cy="617.5" r="253.5" fill="var(--fill-0, #FED0AE)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_0_4" x="0" y="0" width="1022" height="1022" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="124.5" result="effect1_foregroundBlur_0_4"/>
+</filter>
+<filter id="filter1_f_0_4" x="219" y="115" width="1005" height="1005" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="124.5" result="effect1_foregroundBlur_0_4"/>
+</filter>
+</defs>
+</svg>
