@@ -22,6 +22,12 @@
   max-width: 100%;
 }
 
+.headerLogo {
+  height: auto;
+  width: auto;
+  flex-shrink: 0;
+}
+
 .billeif {
   height: 34.4px;
   width: 173.1px;

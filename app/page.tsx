@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Frame1948755428 from "./components/Header/Header";
+import TestimonialsSection from "./components/Testimonials/Testimonials";
 
 const A = "/assets/figma/website-page";
 
@@ -72,33 +73,6 @@ const detailedFeatures = [
       "Role-based access control RBAC2, Secure OTP login",
       "Rate limiting, Secure OTP login",
     ],
-  },
-] as const;
-
-const stories = [
-  {
-    quote:
-      "Your app brings so much peace and clearance to our home.",
-    author: "— Pune, India",
-    role: "",
-  },
-  {
-    quote:
-      "I care to learn that the storyline in my head ... was holding me back.",
-    author: "— Peter, Nigeria",
-    role: "",
-  },
-  {
-    quote:
-      "Headspace provides me with ... a distraction to myself, and a disconnection from negative thoughts, feelings, and sensations.",
-    author: "",
-    role: "",
-  },
-  {
-    quote:
-      "Changing my relationship has allowed me to change my at ...",
-    author: "",
-    role: "",
   },
 ] as const;
 
@@ -386,7 +360,7 @@ export default function Home() {
                   className="absolute text-[15.7px] font-semibold leading-[19.72px] tracking-[-0.17px] text-[#282828]"
                   style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", top: -0.36, left: 0 }}
                 >
-                  Voice powered
+                  Voice powered <span style={{ color: "#ec4848" }}>AI</span>{" "}
                 </span>
                 <span
                   className="absolute text-[15px] font-medium leading-[19.72px] tracking-[-0.17px]"
@@ -399,12 +373,6 @@ export default function Home() {
                 className="absolute flex items-center justify-center overflow-hidden"
                 style={{ top: 18.97, left: 210.83, width: 61.5, height: 41.4 }}
               >
-                <span
-                  className="absolute text-[15.7px] font-semibold leading-[19.72px] tracking-[-0.17px] text-[#ec4848]"
-                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", top: -0.36, left: 0 }}
-                >
-                  AI
-                </span>
               </div>
             </div>
 
@@ -487,63 +455,7 @@ export default function Home() {
         </section>
 
         {/* ─── TESTIMONIALS SECTION ─── */}
-        <section className="relative px-2 pb-16">
-          <div className="rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,238,228,0.95)_0%,rgba(255,248,244,0.98)_100%)] px-6 py-10 sm:px-10">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {stories.map((story, i) => (
-                <article
-                  key={i}
-                  className="relative rounded-2xl border border-white/80 bg-white/90 p-5 shadow-[0_12px_30px_-20px_rgba(42,31,31,0.2)]"
-                >
-                  <div className="mb-3 flex h-8 w-8 items-center justify-center">
-                    <Image
-                      src={`${A}/75fe4fe3-4508-45b1-a7f4-1160e3349a9d.svg`}
-                      alt=""
-                      width={28}
-                      height={28}
-                      className="opacity-60"
-                    />
-                  </div>
-                  <p className="text-sm leading-6 text-[#3d3331]">
-                    {story.quote}
-                  </p>
-                  {story.author && (
-                    <p className="mt-3 text-xs font-medium text-[#907d78]">
-                      {story.author}
-                    </p>
-                  )}
-                </article>
-              ))}
-            </div>
-            {/* Carousel arrows */}
-            <div className="mt-6 flex items-center justify-center gap-3">
-              <button
-                type="button"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(36,29,29,0.12)] bg-white"
-                aria-label="Previous"
-              >
-                <Image
-                  src={`${A}/78076023-0876-40eb-9b7b-779dc8938881.svg`}
-                  alt=""
-                  width={20}
-                  height={20}
-                />
-              </button>
-              <button
-                type="button"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(36,29,29,0.12)] bg-white"
-                aria-label="Next"
-              >
-                <Image
-                  src={`${A}/d194a1c2-0b98-4833-be10-402409a3a47d.svg`}
-                  alt=""
-                  width={20}
-                  height={20}
-                />
-              </button>
-            </div>
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* ─── FEATURES SECTION ─── */}
         <section
@@ -902,20 +814,22 @@ export default function Home() {
             </div>
 
             {/* Large logo + billeif text */}
-            <div className="mt-10 flex items-end gap-3">
+            <div className="mt-10 flex flex-col items-center gap-3">
               <Image
-                src={`${A}/73b12338-23a7-4666-9243-7a63df613684.svg`}
+                src="/assets/billeif.png"
                 alt="Billeif"
-                width={244}
-                height={313}
-                className="h-40 w-auto sm:h-52"
+                width={200}
+                height={160}
+                className="h-32 w-auto sm:h-40"
+                style={{ objectFit: "contain" }}
               />
-              <span
-                className="pb-2 text-3xl font-bold tracking-wide text-[#211a1a] sm:text-4xl"
-                style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
-              >
-                bille<span className="text-[#ec4848]">i</span>f
-              </span>
+              <Image
+                src="/assets/billeif-header.png"
+                alt="Billeif"
+                width={140}
+                height={48}
+                className="h-10 w-auto sm:h-12"
+              />
             </div>
           </div>
 
