@@ -7,13 +7,6 @@ import TestimonialsSection from "./components/Testimonials/Testimonials";
 
 const A = "/assets/figma/website-page";
 
-const navItems = [
-  { label: "Home", href: "#" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "F A Qs", href: "#faqs" },
-  { label: "Contact", href: "#contact" },
-] as const;
-
 const featureCards = [
   {
     icon: `${A}/e6953b17-5e8e-4047-a413-2cba45ef619d.svg`,
@@ -199,13 +192,13 @@ export default function Home() {
             className="mx-auto max-w-4xl text-[clamp(2rem,5.5vw,4rem)] font-bold leading-[1.1] tracking-[-2px] text-[#282828] sm:text-[clamp(2.5rem,5.5vw,4rem)]"
             style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
           >
-            From Voice to Invoice — Instantly.
+            From Voice to Invoice Instantly.
           </h1>
           <p
             className="mx-auto mt-4 max-w-4xl text-[clamp(2rem,5.5vw,4rem)] font-bold leading-[1.1] tracking-[-2px] text-[#ec4848] sm:text-[clamp(2.5rem,5.5vw,4rem)]"
             style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
           >
-            powered by AI.
+            <span className="text-[#282828]">powered by </span><a href="https://cyfernova.in" target="_blank" rel="noopener noreferrer" className="text-[#ec4848] hover:no-underline">CyferNova </a><span className="text-[#282828]">.</span>
           </p>
 
           {/* App store buttons */}
