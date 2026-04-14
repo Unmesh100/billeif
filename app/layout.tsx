@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Red_Hat_Display, Playfair_Display } from "next/font/google";
+import { Manrope, Red_Hat_Display, Playfair_Display, Figtree } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
@@ -19,10 +19,19 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Billeif | Voice-to-Invoice Billing",
   description:
     "Billeif helps teams move from spoken work updates to polished invoice drafts with a warm, AI-powered billing workflow.",
+  other: {
+    "google-fonts": "https://fonts.googleapis.com/css2?family=Motter+Tektura:ital,wght@0,400&display=swap",
+  },
 };
 
 export default function RootLayout({
@@ -33,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${redHatDisplay.variable} ${playfairDisplay.variable} h-full antialiased`}
+      className={`${manrope.variable} ${redHatDisplay.variable} ${playfairDisplay.variable} ${figtree.variable} h-full antialiased`}
     >
       <body className="min-h-full" suppressHydrationWarning>{children}</body>
     </html>

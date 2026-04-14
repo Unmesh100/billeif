@@ -190,162 +190,234 @@ export default function Home() {
   );
 
   return (
-    <main className="relative overflow-x-clip bg-[var(--color-cream)] text-[var(--color-ink)]">
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(252,187,148,0.28),_transparent_35%),linear-gradient(180deg,_rgba(255,255,255,0.72)_0%,_rgba(255,248,240,0.96)_14%,_rgba(255,243,237,1)_100%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[48rem] overflow-hidden">
-        <div className="absolute left-1/2 top-[-6rem] h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-[rgba(255,205,168,0.42)] blur-3xl" />
-        <Image
-          src={`${A}/718ed619-c497-4434-9c2f-5759f15bf4bf.svg`}
-          alt=""
-          width={1224}
-          height={1120}
-          className="absolute left-1/2 top-0 w-[min(92rem,110vw)] -translate-x-1/2 opacity-75"
-        />
-      </div>
+    <main className="relative min-h-screen w-full overflow-hidden">
+      {/* ─── Warm peach gradient background ─── */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(180deg, #ffe1cc 0%, rgba(255,255,255,0) 48.56%, #ffe1cc 98.56%)",
+        }}
+      />
 
-      <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-5 sm:px-8 lg:px-10">
+      {/* Ambient glow behind hero */}
+      <div
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2 rounded-full z-0"
+        style={{
+          bottom: 0,
+          width: 900,
+          height: 700,
+          background:
+            "radial-gradient(ellipse, rgba(236,72,72,0.1) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* ─── NAVIGATION ─── */}
-        <Frame1948755428 />
+        <header className="pt-4">
+          <Frame1948755428 />
+        </header>
 
-        {/* ─── HERO SECTION ─── */}
+        {/* ─── HERO SECTION (Framer-style) ─── */}
         <section className="relative px-2 pb-16 pt-12 text-center sm:pt-16 lg:pt-20">
-          <h1 className="font-display mx-auto max-w-4xl text-[clamp(2.4rem,5.5vw,4.2rem)] leading-[1.1] font-semibold tracking-[-0.03em] text-[#231d1c]">
+          {/* Hero headline */}
+          <h1
+            className="mx-auto max-w-4xl text-[clamp(2rem,5.5vw,4rem)] font-bold leading-[1.1] tracking-[-2px] text-[#282828] sm:text-[clamp(2.5rem,5.5vw,4rem)]"
+            style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+          >
             From Voice to Invoice — Instantly.
-            <br />
-            <span className="font-serif italic text-[#231d1c] font-normal">
-              powered by AI.
-            </span>
           </h1>
+          <p
+            className="mx-auto mt-4 max-w-4xl text-[clamp(2rem,5.5vw,4rem)] font-bold leading-[1.1] tracking-[-2px] text-[#ec4848] sm:text-[clamp(2.5rem,5.5vw,4rem)]"
+            style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+          >
+            powered by AI.
+          </p>
 
-          {/* Action buttons */}
-          <div className="mt-8 flex items-center justify-center gap-5">
-            <button
-              type="button"
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ec4848] shadow-[0_12px_30px_-10px_rgba(236,72,72,0.7)] transition hover:scale-105"
+          {/* App store buttons */}
+          <div className="mt-10 flex items-center justify-center gap-[60px] max-sm:gap-8 max-sm:mt-8">
+            <a
+              href="#"
+              className="group relative h-[57px] w-[203px] cursor-pointer max-sm:h-12 max-sm:w-[180px]"
             >
-              <Image
-                src={`${A}/e6c885a2-c4e2-4e3c-8953-6b426d4c0cbb.svg`}
-                alt="Play video"
-                width={24}
-                height={24}
+              <div
+                className="absolute inset-0 rounded-[3px] transition-transform group-hover:translate-x-[1px] group-hover:translate-y-[1px]"
+                style={{
+                  backgroundColor: "#ec4848",
+                  boxShadow: "1px 2px 0px #282828",
+                }}
               />
-            </button>
-            <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#2a2322]">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <Image
-                  src={`${A}/276e3ee0-fa02-401a-96ec-b6dc9495e3d4.svg`}
-                  alt="Apple"
-                  width={24}
-                  height={24}
+                  src="/assets/apple.svg"
+                  alt="Download on App Store"
+                  width={48}
+                  height={48}
+                  className="pointer-events-none max-sm:w-10 max-sm:h-10"
                 />
-              </span>
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#2a2322]">
-                <svg width="20" height="22" viewBox="0 0 20 22" fill="none">
-                  <path
-                    d="M1 1L11 11L1 21"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7 4L17 11L7 18"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </div>
+              </div>
+            </a>
+            <a
+              href="#"
+              className="group relative h-[57px] w-[203px] cursor-pointer max-sm:h-12 max-sm:w-[180px]"
+            >
+              <div
+                className="absolute inset-0 rounded-[3px] transition-transform group-hover:translate-x-[1px] group-hover:translate-y-[1px]"
+                style={{
+                  backgroundColor: "#ec4848",
+                  boxShadow: "1px 2px 0px #282828",
+                }}
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Image
+                  src="/assets/playstore.svg"
+                  alt="Get it on Play Store"
+                  width={48}
+                  height={48}
+                  className="pointer-events-none max-sm:w-10 max-sm:h-10"
+                />
+              </div>
+            </a>
           </div>
 
-          {/* Hero illustration with floating badges */}
+          {/* Hero illustration with phone mockup + floating cards */}
           <div className="relative mx-auto mt-10 max-w-3xl">
-            {/* Instagram icon */}
-            <div className="absolute left-0 top-0 z-10 hidden lg:block">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/90 shadow-[0_12px_30px_-16px_rgba(42,31,31,0.4)]">
-                <Image
-                  src={`${A}/3fc27bd9-cae3-436a-a2c3-02d08ff6ca32.svg`}
-                  alt="Instagram"
-                  width={24}
-                  height={24}
-                />
-              </span>
-            </div>
-
-            {/* Agentic Automation badge */}
-            <div className="float-slow absolute left-[-2%] top-[35%] z-10 hidden lg:block">
-              <div className="rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_16px_40px_-24px_rgba(42,31,31,0.4)] backdrop-blur">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff2ec]">
-                    <Image
-                      src={`${A}/def58c92-70ce-4fe3-b5e1-64fbcf34a034.svg`}
-                      alt=""
-                      width={20}
-                      height={20}
-                    />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold text-[#241d1d]">
-                      Agentic Automation
-                    </p>
-                    <p className="text-xs text-[#8b7570]">
-                      Your billing is done by that&apos;s pad
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Voice powered AI badge */}
-            <div className="float-delayed absolute right-[-2%] top-[20%] z-10 hidden lg:block">
-              <div className="rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_16px_40px_-24px_rgba(42,31,31,0.4)] backdrop-blur">
-                <div className="flex items-center gap-3">
-                  <div>
-                    <p className="text-sm font-semibold text-[#241d1d]">
-                      Voice powered
-                    </p>
-                    <p className="text-xs text-[#8b7570]">AI</p>
-                  </div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff2ec]">
-                    <Image
-                      src={`${A}/ad8bee2a-fef0-4bb8-9e54-413f4c0401c5.svg`}
-                      alt=""
-                      width={17}
-                      height={22}
-                    />
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating sparkles */}
-            <Image
-              src={`${A}/48bde17d-08d6-4603-ad11-ebafd096a484.svg`}
-              alt=""
-              width={12}
-              height={12}
-              className="float-slow absolute left-[15%] top-[10%] hidden w-3 lg:block"
-            />
-            <Image
-              src={`${A}/c5ae22ff-e5c9-4c3e-998e-54e95aff050e.svg`}
-              alt=""
-              width={8}
-              height={8}
-              className="float-delayed absolute right-[20%] top-[5%] hidden w-2 lg:block"
-            />
-
-            {/* Main illustration */}
-            <div className="relative mx-auto max-w-xl">
+            {/* Agentic Automation badge (left) */}
+            <div
+              className="hidden lg:block absolute z-10 rounded-[20px] overflow-hidden backdrop-blur-sm max-xl:hidden"
+              style={{
+                top: 200,
+                left: -200,
+                width: 296.3,
+                height: 81,
+                backgroundColor: "rgba(255,255,255,0.65)",
+                opacity: 0.93,
+                boxShadow: "0.8px 1.7px 32px 10px rgba(0,0,0,0.06)",
+              }}
+            >
               <Image
-                src={`${A}/73ebdb35-8b49-4539-b032-de8774fc6d7d.png`}
-                alt="Billeif billing illustration"
-                width={1080}
-                height={720}
+                src="/assets/star.svg"
+                alt=""
+                width={48}
+                height={48}
+                className="absolute"
+                style={{ top: 14.19, left: 10.97 }}
+              />
+              <div
+                className="absolute flex flex-col gap-0.5"
+                style={{ top: 19, left: 72, width: 205 }}
+              >
+                <span
+                  className="absolute text-[15.7px] font-semibold leading-[19.72px] tracking-[-0.17px] text-[#282828]"
+                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", top: -0.36, left: 0 }}
+                >
+                  Agentic Automation
+                </span>
+                <span
+                  className="absolute text-[15px] font-medium leading-[19.72px] tracking-[-0.17px]"
+                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", color: "rgba(63,63,63,0.75)", top: 18.36, left: 0 }}
+                >
+                  Easy billing & <span style={{ color: "#ec4848" }}>AI</span>{" "}
+                  <span style={{ color: "#797876" }}>support</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Voice powered AI badge (right) */}
+            <div
+              className="hidden lg:block absolute z-10 rounded-[20px] overflow-hidden backdrop-blur-sm max-xl:hidden"
+              style={{
+                top: 90,
+                right: -190,
+                width: 296.3,
+                height: 81,
+                backgroundColor: "rgba(255,255,255,0.65)",
+                opacity: 0.93,
+                boxShadow: "0.8px 1.7px 32px 10px rgba(0,0,0,0.06)",
+              }}
+            >
+              <Image
+                src="/assets/voice.svg"
+                alt=""
+                width={48}
+                height={48}
+                className="absolute"
+                style={{ top: 14.19, left: 10.97 }}
+              />
+              <div
+                className="absolute flex flex-col gap-0.5"
+                style={{ top: 18.97, left: 71.97, width: 128.9 }}
+              >
+                <span
+                  className="absolute text-[15.7px] font-semibold leading-[19.72px] tracking-[-0.17px] text-[#282828]"
+                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", top: -0.36, left: 0 }}
+                >
+                  Voice powered
+                </span>
+                <span
+                  className="absolute text-[15px] font-medium leading-[19.72px] tracking-[-0.17px]"
+                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", color: "rgba(63,63,63,0.75)", top: 21.03, left: 0 }}
+                >
+                  billing Assistant
+                </span>
+              </div>
+              <div
+                className="absolute flex items-center justify-center overflow-hidden"
+                style={{ top: 18.97, left: 210.83, width: 61.5, height: 41.4 }}
+              >
+                <span
+                  className="absolute text-[15.7px] font-semibold leading-[19.72px] tracking-[-0.17px] text-[#ec4848]"
+                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif", top: -0.36, left: 0 }}
+                >
+                  AI
+                </span>
+              </div>
+            </div>
+
+            {/* Decorative circles */}
+            <Image
+              src="/assets/circle.svg"
+              alt=""
+              width={86}
+              height={86}
+              className="absolute z-[3] hidden lg:block max-xl:hidden"
+              style={{ top: -25, left: "calc(50% - 390px)" }}
+            />
+            <Image
+              src="/assets/circle.svg"
+              alt=""
+              width={86}
+              height={86}
+              className="absolute z-[3] hidden lg:block max-xl:hidden"
+              style={{ top: 450, left: "calc(50% + 310px)" }}
+            />
+
+            {/* Phone mockup frame */}
+            <div
+              className="relative mx-auto overflow-hidden"
+              style={{
+                borderRadius: "44px",
+                border: "19px solid rgba(255,255,255,0.5)",
+                boxSizing: "border-box",
+                maxWidth: 737,
+                height: 518,
+              }}
+            >
+              <Image
+                src="/assets/billvec.png"
+                alt="Billeif app illustration"
+                width={644}
+                height={429}
+                unoptimized
+                className="absolute w-full max-w-[644px]"
+                style={{
+                  top: "calc(50% - 215px)",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  height: 429,
+                  objectFit: "cover",
+                }}
                 priority
-                className="mx-auto w-full"
               />
             </div>
           </div>
@@ -775,7 +847,10 @@ export default function Home() {
                 height={313}
                 className="h-40 w-auto sm:h-52"
               />
-              <span className="font-display pb-2 text-3xl font-bold tracking-wide text-[#211a1a] sm:text-4xl">
+              <span
+                className="pb-2 text-3xl font-bold tracking-wide text-[#211a1a] sm:text-4xl"
+                style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+              >
                 bille<span className="text-[#ec4848]">i</span>f
               </span>
             </div>
