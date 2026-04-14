@@ -10,12 +10,12 @@ const Frame1948755428: NextPage = () => {
         <span className={styles.if}>if</span>
       </div>
       <div className={styles.aboutParent}>
-        <b className={styles.about}>About</b>
-        <b className={styles.pricing}>Pricing</b>
-        <b className={styles.pricing}>F.A.Qs</b>
-        <b className={styles.pricing}>Contact</b>
+        <a href="#about" className={styles.about}>About</a>
+        <a href="#pricing" className={styles.pricing}>Pricing</a>
+        <a href="#faqs" className={styles.pricing}>F.A.Qs</a>
+        <a href="#contact" className={styles.pricing}>Contact</a>
       </div>
-      <div className={styles.demo}>
+      <a href="#contact" className={styles.demo}>
         <div className={styles.demoChild} />
         <img
           className={styles.rivideoLineIcon}
@@ -24,7 +24,7 @@ const Frame1948755428: NextPage = () => {
           alt=""
           src="/hicon.svg"
         />
-      </div>
+      </a>
     </div>
   );
 };

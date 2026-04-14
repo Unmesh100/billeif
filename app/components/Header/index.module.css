@@ -45,6 +45,7 @@
   color: #3f3f3f;
   cursor: pointer;
   transition: color 0.2s ease;
+  font-weight: 600;
 }
 
 .about:hover {
@@ -58,6 +59,7 @@
   color: #3f3f3f;
   cursor: pointer;
   transition: color 0.2s ease;
+  font-weight: 600;
 }
 
 .pricing:hover {
