@@ -235,10 +235,10 @@ export default function Home() {
           </p>
 
           {/* App store buttons */}
-          <div className="mt-10 flex items-center justify-center gap-[60px] max-sm:gap-8 max-sm:mt-8">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-[60px] gap-y-4 max-sm:gap-x-4 max-sm:mt-8">
             <a
               href="#"
-              className="group relative h-[57px] w-[203px] cursor-pointer max-sm:h-12 max-sm:w-[180px]"
+              className="group relative h-[57px] w-[203px] cursor-pointer max-sm:h-12 max-sm:w-[140px]"
             >
               <div
                 className="absolute inset-0 rounded-[3px] transition-transform group-hover:translate-x-[1px] group-hover:translate-y-[1px]"
@@ -259,7 +259,7 @@ export default function Home() {
             </a>
             <a
               href="#"
-              className="group relative h-[57px] w-[203px] cursor-pointer max-sm:h-12 max-sm:w-[180px]"
+              className="group relative h-[57px] w-[203px] cursor-pointer max-sm:h-12 max-sm:w-[140px]"
             >
               <div
                 className="absolute inset-0 rounded-[3px] transition-transform group-hover:translate-x-[1px] group-hover:translate-y-[1px]"
@@ -282,9 +282,43 @@ export default function Home() {
 
           {/* Hero illustration with phone mockup + floating cards */}
           <div className="relative mx-auto mt-10 max-w-3xl">
+            {/* Mobile and tablet badges */}
+            <div className="mb-4 px-1 xl:hidden">
+              <div
+                className="flex items-center rounded-2xl p-3"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.72)",
+                  boxShadow: "0.8px 1.7px 22px 2px rgba(0,0,0,0.07)",
+                }}
+              >
+                <Image
+                  src="/assets/star.svg"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="shrink-0"
+                />
+                <div className="ml-2.5 flex flex-col">
+                  <span
+                    className="text-[14px] font-semibold leading-[1.2] text-[#282828]"
+                    style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+                  >
+                    Agentic Automation
+                  </span>
+                  <span
+                    className="text-[13px] font-medium leading-[1.2] text-[#5e5d5b]"
+                    style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+                  >
+                    Easy billing & <span style={{ color: "#ec4848" }}>AI</span>{" "}
+                    support
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {/* Agentic Automation badge (left) */}
             <div
-              className="hidden lg:block absolute z-10 rounded-[20px] overflow-hidden backdrop-blur-sm max-xl:hidden"
+              className="absolute z-10 hidden overflow-hidden rounded-[20px] backdrop-blur-sm xl:block"
               style={{
                 top: 200,
                 left: -200,
@@ -325,7 +359,7 @@ export default function Home() {
 
             {/* Voice powered AI badge (right) */}
             <div
-              className="hidden lg:block absolute z-10 rounded-[20px] overflow-hidden backdrop-blur-sm max-xl:hidden"
+              className="absolute z-10 hidden overflow-hidden rounded-[20px] backdrop-blur-sm xl:block"
               style={{
                 top: 90,
                 right: -190,
@@ -380,7 +414,7 @@ export default function Home() {
               alt=""
               width={86}
               height={86}
-              className="absolute z-[3] hidden lg:block max-xl:hidden"
+              className="absolute z-[3] hidden xl:block"
               style={{ top: -25, left: "calc(50% - 390px)" }}
             />
             <Image
@@ -388,19 +422,16 @@ export default function Home() {
               alt=""
               width={86}
               height={86}
-              className="absolute z-[3] hidden lg:block max-xl:hidden"
+              className="absolute z-[3] hidden xl:block"
               style={{ top: 450, left: "calc(50% + 310px)" }}
             />
 
             {/* Phone mockup frame */}
             <div
-              className="relative mx-auto overflow-hidden"
+              className="relative mx-auto w-full overflow-hidden rounded-[24px] border-[8px] border-white/50 box-border sm:rounded-[32px] sm:border-[12px] lg:rounded-[44px] lg:border-[19px]"
               style={{
-                borderRadius: "44px",
-                border: "19px solid rgba(255,255,255,0.5)",
-                boxSizing: "border-box",
                 maxWidth: 737,
-                height: 518,
+                aspectRatio: "737 / 518",
               }}
             >
               <Image
@@ -409,16 +440,48 @@ export default function Home() {
                 width={644}
                 height={429}
                 unoptimized
-                className="absolute w-full max-w-[644px]"
-                style={{
-                  top: "calc(50% - 215px)",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  height: 429,
-                  objectFit: "cover",
-                }}
+                className="absolute left-1/2 top-1/2 w-[92%] max-w-[644px] -translate-x-1/2 -translate-y-1/2 h-auto"
+                style={{ objectFit: "contain" }}
                 priority
               />
+            </div>
+
+            <div className="mt-4 px-1 xl:hidden">
+              <div
+                className="flex items-center rounded-2xl p-3"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.72)",
+                  boxShadow: "0.8px 1.7px 22px 2px rgba(0,0,0,0.07)",
+                }}
+              >
+                <Image
+                  src="/assets/voice.svg"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="shrink-0"
+                />
+                <div className="ml-2.5 flex flex-col">
+                  <span
+                    className="text-[14px] font-semibold leading-[1.2] text-[#282828]"
+                    style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+                  >
+                    Voice powered
+                  </span>
+                  <span
+                    className="text-[13px] font-medium leading-[1.2] text-[#5e5d5b]"
+                    style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+                  >
+                    billing Assistant
+                  </span>
+                </div>
+                <span
+                  className="ml-auto text-[14px] font-semibold text-[#ec4848]"
+                  style={{ fontFamily: "var(--font-figtree), Figtree, sans-serif" }}
+                >
+                  AI
+                </span>
+              </div>
             </div>
           </div>
         </section>
