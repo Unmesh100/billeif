@@ -1,0 +1,150 @@
+.billeifParent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 64.8px;
+  color: #f92d59;
+  font-family: 'Motter Tektura';
+}
+
+.billeif {
+  height: 34.4px;
+  width: 173.1px;
+  position: relative;
+  line-height: 16.2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.billeifText {
+  font-family: 'Motter Tektura', sans-serif;
+}
+
+.if {
+  color: #282828;
+  font-family: 'Motter Tektura', sans-serif;
+}
+
+.aboutParent {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  text-align: left;
+  font-size: 16px;
+  color: #3f3f3f;
+  font-family: Figtree;
+}
+
+.about {
+  position: relative;
+  letter-spacing: -0.2px;
+  line-height: 27.2px;
+  color: #3f3f3f;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.about:hover {
+  color: #ec4848;
+}
+
+.pricing {
+  position: relative;
+  letter-spacing: -0.2px;
+  line-height: 27.2px;
+  color: #3f3f3f;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.pricing:hover {
+  color: #ec4848;
+}
+
+.demo {
+  height: 66px;
+  width: 160px;
+  position: relative;
+  box-shadow: 2px 4px 0px #282828;
+}
+
+.demoChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 0px;
+  background-color: #ec4848;
+  width: 160px;
+  height: 66px;
+}
+
+.rivideoLineIcon {
+  position: absolute;
+  top: 9px;
+  left: 56px;
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 768px) {
+  .billeifParent {
+    font-size: 48px;
+  }
+
+  .billeif {
+    height: 28px;
+    width: 140px;
+  }
+
+  .aboutParent {
+    display: none;
+  }
+
+  .demo {
+    height: 50px;
+    width: 120px;
+  }
+
+  .demoChild {
+    width: 120px;
+    height: 50px;
+  }
+
+  .rivideoLineIcon {
+    top: 1px;
+    left: 36px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .billeifParent {
+    font-size: 36px;
+  }
+
+  .billeif {
+    height: 24px;
+    width: 110px;
+  }
+
+  .demo {
+    height: 40px;
+    width: 90px;
+  }
+
+  .demoChild {
+    width: 90px;
+    height: 40px;
+  }
+
+  .rivideoLineIcon {
+    top: -4px;
+    left: 21px;
+    width: 48px;
+    height: 48px;
+  }
+}

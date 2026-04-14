@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Frame1948755428 from "./components/Header/Header";
 
 const A = "/assets/figma/website-page";
 
@@ -205,37 +206,7 @@ export default function Home() {
 
       <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-5 sm:px-8 lg:px-10">
         {/* ─── NAVIGATION ─── */}
-        <header className="relative z-20 flex items-center justify-between px-2 py-4">
-          <div className="flex items-center gap-2">
-            <Image
-              src={`${A}/73b12338-23a7-4666-9243-7a63df613684.svg`}
-              alt="Billeif"
-              width={32}
-              height={40}
-              className="h-8 w-auto"
-            />
-            <span className="font-serif text-2xl font-bold italic text-[#ec4848]">
-              billeif
-            </span>
-          </div>
-          <nav className="hidden items-center gap-8 text-sm font-medium text-[#3d3331] md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="transition hover:text-[#ec4848]"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href="#pricing"
-            className="rounded-xl bg-[#ec4848] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(236,72,72,0.6)] transition hover:bg-[#df4040]"
-          >
-            Get started
-          </a>
-        </header>
+        <Frame1948755428 />
 
         {/* ─── HERO SECTION ─── */}
         <section className="relative px-2 pb-16 pt-12 text-center sm:pt-16 lg:pt-20">
