@@ -691,9 +691,34 @@ export default function Home() {
           className="scroll-mt-32 px-2 py-12 lg:px-4 lg:py-20"
         >
           <div className="text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[rgba(236,72,72,0.15)] bg-white/80 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#c84f4a]">
-              <span className="h-2 w-2 rounded-full bg-[#ec4848]" />
-              Get Started Today — Your Billing, Your Way
+            {/* Get Started Today pill — matching "Billing Made Simple" style */}
+            <div
+              style={{
+                borderRadius: '12px',
+                background: 'radial-gradient(50% 50% at 50% 50%, #fff, #F7B2AC) border-box, #f7b2ac padding-box',
+                border: '1.1px solid #f7b2ac',
+                boxSizing: 'border-box',
+                width: 'auto',
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '8.6px 17.2px',
+                marginBottom: '16px',
+                fontFamily: 'Figtree, sans-serif',
+              }}
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  lineHeight: '17.17px',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  color: '#0b0b0b',
+                  fontFamily: 'Figtree, sans-serif',
+                  fontSize: '15.02px',
+                }}
+              >
+                Get Started Today — Your Billing, Your Way
+              </div>
             </div>
             <h2 className="font-display mx-auto max-w-3xl text-4xl leading-tight tracking-[-0.03em] text-[#211a1a] sm:text-5xl">
               Find{" "}
@@ -736,93 +761,176 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-5xl gap-5 lg:grid-cols-3">
-            {plans.map((plan) => (
-              <article
-                key={plan.name}
-                className={`relative rounded-2xl border text-left ${
-                  plan.featured
-                    ? "border-[rgba(236,72,72,0.2)] bg-white shadow-[0_20px_50px_-20px_rgba(236,72,72,0.2)]"
-                    : "border-[rgba(36,29,29,0.08)] bg-white"
-                }`}
-              >
-                {/* Tag banner */}
-                <div
-                  className={`rounded-t-2xl px-5 py-2.5 text-center text-xs font-semibold ${
-                    plan.featured
-                      ? "bg-[#ec4848] text-white"
-                      : "bg-[#fff3eb] text-[#8b7570]"
-                  }`}
-                >
-                  {plan.tag}
+          {/* Pricing cards grid */}
+          <style>{`
+            .pricing-card { transition: all 0.3s ease; cursor: pointer; }
+            .pricing-card:hover { transform: translateY(-4px); box-shadow: 0px 20px 40px -8px rgba(242, 128, 14, 0.2), 0px 8px 16px -4px rgba(10, 13, 18, 0.08) !important; border-color: #f2800e !important; }
+            @media (max-width: 1024px) {
+              .pricing-grid { grid-template-columns: 1fr !important; max-width: 480px !important; }
+            }
+          `}</style>
+          <div className="mx-auto mt-10 grid pricing-grid max-w-5xl gap-5 lg:grid-cols-3 items-stretch">
+
+            {/* ── FREE PLAN ── */}
+            <div className="pricing-card w-full rounded-2xl border border-[#fff0f3] bg-white flex flex-col items-start overflow-hidden" style={{ boxShadow: '0px 11.47px 15.29px -3.82px rgba(10, 13, 18, 0.08), 0px 3.82px 5.73px -1.91px rgba(10, 13, 18, 0.03)', fontFamily: 'Figtree, sans-serif', color: '#181d27' }}>
+              {/* Badge */}
+              <div className="w-full bg-[#ec4848] flex items-center justify-center py-2 px-3">
+                <b className="text-white text-center" style={{ fontSize: 'clamp(11px, 2vw, 17.2px)', lineHeight: 1.5 }}>For one person</b>
+              </div>
+
+              {/* Header */}
+              <div className="w-full bg-[#fff0f3] flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 pt-8 pb-4 gap-4">
+                {/* Illustration */}
+                <div className="w-16 h-16 sm:w-[76px] sm:h-[76px] relative flex-shrink-0">
+                  <Image src="/rocket.svg" alt="" fill style={{ objectFit: 'contain' }} />
                 </div>
-
-                <div className="p-6">
-                  <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#3d3331]">
-                    {plan.name}
-                  </p>
-                  <p className="mt-1 text-xs text-[#8b7570]">{plan.billing}</p>
-
-                  <div className="mt-4 flex items-end gap-1">
-                    <span className="font-display text-4xl font-bold leading-none tracking-[-0.04em] text-[#221c1b]">
-                      {plan.price}
-                    </span>
-                    <span className="pb-1 text-sm text-[#8d7a75]">
-                      {plan.period}
-                    </span>
-                  </div>
-
-                  <p className="mt-3 text-sm leading-6 text-[#71645f]">
-                    {plan.subtitle}
-                  </p>
-
-                  {/* Divider */}
-                  <div className="my-5 h-px bg-[rgba(36,29,29,0.08)]" />
-
-                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#8b7570]">
-                    {plan.heading}
-                  </p>
-
-                  <ul className="space-y-3">
-                    {plan.points.map((point) => (
-                      <li
-                        key={point}
-                        className="flex items-start gap-2.5 text-sm leading-5 text-[#5f5451]"
-                      >
-                        <Image
-                          src={`${A}/769d85c0-4a14-4a45-aa9b-d12bcb93e9c9.svg`}
-                          alt=""
-                          width={18}
-                          height={18}
-                          className="mt-0.5 shrink-0"
-                        />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="#contact"
-                    className={`mt-6 flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
-                      plan.ctaStyle === "filled"
-                        ? "bg-[#ec4848] text-white hover:bg-[#df4040]"
-                        : "border border-[rgba(36,29,29,0.12)] bg-white text-[#2b2221] hover:border-[rgba(36,29,29,0.2)]"
-                    }`}
-                  >
-                    {plan.cta}
-                  </a>
-
-                  {plan.footer && (
-                    <a
-                      href="#contact"
-                      className="mt-3 block text-center text-sm font-medium text-[#ec4848] underline underline-offset-2"
-                    >
-                      {plan.footer}
-                    </a>
-                  )}
+                <div className="flex flex-col items-center gap-1">
+                  <div className="uppercase font-semibold" style={{ fontSize: 'clamp(16px, 3vw, 22.93px)', lineHeight: 1.26 }}>FREE PLAN</div>
+                  <div style={{ fontSize: 'clamp(12px, 2vw, 17.2px)', color: '#50535b', lineHeight: 1.5 }}>Billed annually.</div>
                 </div>
-              </article>
-            ))}
+                <div className="font-bold" style={{ fontSize: 'clamp(28px, 5vw, 45.86px)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>₹0/Month</div>
+                <div style={{ fontSize: 'clamp(11px, 1.5vw, 13.38px)', color: '#50535b', lineHeight: 1.4 }}>Design anything and bring your ideas to life</div>
+              </div>
+
+              {/* Content */}
+              <div className="w-full flex flex-col p-4 sm:p-6 lg:p-8 gap-5 flex-1">
+                <div className="font-semibold" style={{ fontSize: 'clamp(13px, 1.8vw, 15.29px)', lineHeight: 1.5 }}>Features you'll get:</div>
+                <div className="flex flex-col gap-3 sm:gap-4" style={{ color: '#50535b' }}>
+                  {[
+                    'Easy drag & drop editor',
+                    'Large library of professionally designed templates',
+                    '1000+ design types',
+                    'Large library of stock photos & graphics',
+                    '10 GB of cloud storage',
+                  ].map((text) => (
+                    <div key={text} className="flex items-center gap-3">
+                      <div className="relative w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0">
+                        <Image src="/assets/figma/website-page/769d85c0-4a14-4a45-aa9b-d12bcb93e9c9.svg" alt="" fill style={{ objectFit: 'contain' }} />
+                      </div>
+                      <span className="flex-1" style={{ fontSize: 'clamp(12px, 1.6vw, 15.29px)', lineHeight: 1.5 }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="w-full p-4 sm:p-6 lg:p-8 pt-0 flex flex-col gap-3">
+                <a href="#contact" className="w-full h-11 sm:h-[49.7px] rounded-lg bg-white border border-[#242424] flex items-center justify-center text-[#242424] no-underline font-semibold" style={{ fontSize: 'clamp(13px, 1.8vw, 17.2px)', lineHeight: 1.5 }}>
+                  Get Started
+                </a>
+              </div>
+            </div>
+
+            {/* ── PRO PLAN (Featured) ── */}
+            <div className="pricing-card w-full rounded-2xl border border-[#fff0f3] bg-white flex flex-col items-start overflow-hidden" style={{ boxShadow: '0px 11.47px 15.29px -3.82px rgba(10, 13, 18, 0.08), 0px 3.82px 5.73px -1.91px rgba(10, 13, 18, 0.03)', fontFamily: 'Figtree, sans-serif', color: '#181d27' }}>
+              {/* Badge */}
+              <div className="w-full bg-[#f24822] flex items-center justify-center py-2 px-3">
+                <b className="text-white text-center" style={{ fontSize: 'clamp(11px, 2vw, 17.2px)', lineHeight: 1.5 }}>For one person | Most Popular</b>
+              </div>
+
+              {/* Header */}
+              <div className="w-full bg-[#fff0f3] flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 pt-8 pb-4 gap-4">
+                {/* Illustration */}
+                <div className="w-16 h-16 sm:w-[76px] sm:h-[76px] relative flex-shrink-0">
+                  <Image src="/thunder.svg" alt="" fill style={{ objectFit: 'contain' }} />
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="uppercase font-semibold" style={{ fontSize: 'clamp(16px, 3vw, 22.93px)', lineHeight: 1.26 }}>PRO PLAN</div>
+                  <div style={{ fontSize: 'clamp(12px, 2vw, 17.2px)', color: '#50535b', lineHeight: 1.5 }}>Billed annually.</div>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="font-bold" style={{ fontSize: 'clamp(28px, 5vw, 45.86px)', letterSpacing: '-0.02em', lineHeight: 1.2, color: '#181d27' }}>₹599/Month</div>
+                  <div style={{ fontSize: 'clamp(11px, 1.5vw, 15.29px)', color: '#50535b', lineHeight: 1.5 }}>₹7200/Year</div>
+                </div>
+                <div style={{ fontSize: 'clamp(11px, 1.5vw, 13.38px)', color: '#50535b', lineHeight: 1.4 }}>Unlock more powerful design tools.</div>
+              </div>
+
+              {/* Content */}
+              <div className="w-full flex flex-col p-4 sm:p-6 lg:p-8 gap-5 flex-1 bg-white">
+                <div className="font-semibold" style={{ fontSize: 'clamp(13px, 1.8vw, 15.29px)', lineHeight: 1.5 }}>In addition to free, you'll get:</div>
+                <div className="flex flex-col gap-3 sm:gap-4" style={{ color: '#50535b' }}>
+                  {[
+                    'Unlimited premium templates',
+                    'Customizable brand kits to manage your brands',
+                    '100 M+ visual assets',
+                    'Quickly resize and translate designs to increase efficiency',
+                    '30 GB of cloud storage',
+                  ].map((text) => (
+                    <div key={text} className="flex items-center gap-3">
+                      <div className="relative w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0">
+                        <Image src="/assets/figma/website-page/769d85c0-4a14-4a45-aa9b-d12bcb93e9c9.svg" alt="" fill style={{ objectFit: 'contain' }} />
+                      </div>
+                      <span className="flex-1" style={{ fontSize: 'clamp(12px, 1.6vw, 15.29px)', lineHeight: 1.5 }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="w-full p-4 sm:p-6 lg:p-8 pt-0 flex flex-col bg-white">
+                <a href="#contact" className="w-full h-11 sm:h-[49.7px] rounded-lg flex items-center justify-center text-white font-semibold no-underline" style={{ fontSize: 'clamp(13px, 1.8vw, 17.2px)', lineHeight: 1.5, backgroundColor: '#f92d59', border: '1px solid #f92d59' }}>
+                  Start Free Trial
+                </a>
+              </div>
+            </div>
+
+            {/* ── TEAM PLAN ── */}
+            <div className="pricing-card w-full rounded-2xl border border-[#fff0f3] bg-white flex flex-col items-start overflow-hidden" style={{ boxShadow: '0px 11.47px 15.29px -3.82px rgba(10, 13, 18, 0.08), 0px 3.82px 5.73px -1.91px rgba(10, 13, 18, 0.03)', fontFamily: 'Figtree, sans-serif', color: '#181d27' }}>
+              {/* Badge */}
+              <div className="w-full bg-[#ec4848] flex items-center justify-center py-2 px-3">
+                <b className="text-white text-center" style={{ fontSize: 'clamp(11px, 2vw, 17.2px)', lineHeight: 1.5 }}>For your team</b>
+              </div>
+
+              {/* Header */}
+              <div className="w-full bg-[#fff0f3] flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 pt-8 pb-4 gap-4">
+                {/* Illustration */}
+                <div className="w-16 h-16 sm:w-[76px] sm:h-[76px] relative flex-shrink-0">
+                  <Image src="/team.svg" alt="" fill style={{ objectFit: 'contain' }} />
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="uppercase font-semibold" style={{ fontSize: 'clamp(16px, 3vw, 22.93px)', lineHeight: 1.26 }}>TEAM PLAN</div>
+                  <div style={{ fontSize: 'clamp(12px, 2vw, 17.2px)', color: '#50535b', lineHeight: 1.5 }}>Billed annually.</div>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="font-bold" style={{ fontSize: 'clamp(28px, 5vw, 45.86px)', letterSpacing: '-0.02em', lineHeight: 1.2, color: '#181d27' }}>₹699/Month*</div>
+                  <div style={{ fontSize: 'clamp(11px, 1.5vw, 15.29px)', color: '#50535b', lineHeight: 1.5 }}>₹8388/Year</div>
+                  <div style={{ fontSize: 'clamp(11px, 1.5vw, 15.29px)', color: '#50535b', lineHeight: 1.5 }}>* per person cost</div>
+                </div>
+                <div style={{ fontSize: 'clamp(11px, 1.5vw, 13.38px)', color: '#50535b', lineHeight: 1.4 }}>Transform and grow your teamwork.</div>
+              </div>
+
+              {/* Content */}
+              <div className="w-full flex flex-col p-4 sm:p-6 lg:p-8 gap-5 flex-1">
+                <div className="font-semibold" style={{ fontSize: 'clamp(13px, 1.8vw, 15.29px)', lineHeight: 1.5 }}>In addition to pro, you'll get:</div>
+                <div className="flex flex-col gap-3 sm:gap-4" style={{ color: '#50535b' }}>
+                  {[
+                    'Scale and centralize brand identity',
+                    'Ensure brand consistency with streamlined approvals',
+                    'Team reports and insights',
+                    'Edit, comment and collaborate in real time',
+                    '1 TB of cloud storage',
+                  ].map((text) => (
+                    <div key={text} className="flex items-center gap-3">
+                      <div className="relative w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0">
+                        <Image src="/assets/figma/website-page/769d85c0-4a14-4a45-aa9b-d12bcb93e9c9.svg" alt="" fill style={{ objectFit: 'contain' }} />
+                      </div>
+                      <span className="flex-1" style={{ fontSize: 'clamp(12px, 1.6vw, 15.29px)', lineHeight: 1.5 }}>{text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="w-full p-4 sm:p-6 lg:p-8 pt-0 flex flex-col gap-3">
+                <a href="#contact" className="w-full h-11 sm:h-[49.7px] rounded-lg bg-white border border-[#242424] flex items-center justify-center text-[#242424] no-underline font-semibold" style={{ fontSize: 'clamp(13px, 1.8vw, 17.2px)', lineHeight: 1.5 }}>
+                  Start Free Trial
+                </a>
+                <a href="#contact" className="w-full h-11 sm:h-[49.7px] rounded-lg bg-white flex items-center justify-center text-[#f92d59] no-underline font-semibold" style={{ fontSize: 'clamp(13px, 1.8vw, 17.2px)', lineHeight: 1.5, border: '1px solid transparent' }}>
+                  Contact Sales
+                </a>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -832,7 +940,7 @@ export default function Home() {
           className="scroll-mt-32 px-2 py-12 lg:px-4 lg:py-20"
         >
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-center text-4xl font-bold tracking-[-0.03em] text-[#211a1a] sm:text-5xl">
+            <h2 className="font-display text-center text-4xl font-bold tracking-[-0.03em] text-[#F92D59] sm:text-5xl">
               F.A.Qs
             </h2>
 
@@ -841,10 +949,9 @@ export default function Home() {
                 <details
                   key={item.question}
                   className="group border-b border-[rgba(36,29,29,0.12)] py-5"
-                  open={i === 0}
                 >
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                    <span className="text-base font-medium text-[#211a1a]">
+                    <span className="text-base font-medium text-[#211a1a] hover:text-[#F92D59] transition-colors">
                       {item.question}
                     </span>
                     <svg
@@ -856,7 +963,7 @@ export default function Home() {
                     >
                       <path
                         d="M5 7.5L10 12.5L15 7.5"
-                        stroke="#6f6561"
+                        stroke="#F92D59"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -871,17 +978,26 @@ export default function Home() {
             </div>
 
             {/* Still have a question */}
-            <div className="mt-14 text-center">
-              <h3 className="font-display text-2xl font-bold text-[#211a1a] sm:text-3xl">
-                Still have a question?
-              </h3>
-              <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-[#6f6561]">
-                We&apos;ve covered the most common questions, but if you&apos;re
-                still curious about how FlowPay works or need specific details,
-                we&apos;re here to help. Don&apos;t hesitate to reach out —
-                we&apos;re happy to provide more information and guide you
-                through anything you need.
-              </p>
+            <div className="mt-14 flex flex-col items-center gap-10 w-full">
+              <div className="w-full flex flex-col items-center gap-4 max-w-full">
+                <h3 className="w-full font-bold text-center text-[#0b0b0b]" style={{ fontSize: 'clamp(22px, 4vw, 34.33px)', lineHeight: '130%', fontFamily: 'Figtree, sans-serif' }}>
+                  Still have a question?
+                </h3>
+                <p className="w-full text-center" style={{ fontSize: 'clamp(13px, 2vw, 17.17px)', lineHeight: '150%', color: '#0b0b0b', opacity: 0.7, fontFamily: 'Figtree, sans-serif' }}>
+                  We've covered the most common questions, but if you're still curious about how FlowPay works or need specific details, we're here to help. Don't hesitate to reach out—we're happy to provide more information and guide you through anything you need.
+                </p>
+              </div>
+
+              {/* Contact button */}
+              <div className="relative w-[203px] h-[57px] cursor-pointer group">
+                <div
+                  className="absolute inset-0 rounded-[3px] transition-transform group-hover:translate-x-[1px] group-hover:translate-y-[1px]"
+                  style={{ backgroundColor: '#ec4848', boxShadow: '1px 2px 0px #282828' }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Image src="/call.svg" alt="Contact" width={48} height={48} />
+                </div>
+              </div>
             </div>
           </div>
         </section>
