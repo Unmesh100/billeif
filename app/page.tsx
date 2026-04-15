@@ -30,6 +30,13 @@ const featureCards = [
   },
 ] as const;
 
+const featureIcons: Record<string, string> = {
+  'Voice-First "No-UI"': '/vc.svg',
+  'GST Compliance': '/invoice.svg',
+  'IdleAI GST Automation': '/ai.svg',
+  'Security features': '/shield.svg',
+};
+
 const detailedFeatures = [
   {
     title: 'Voice-First "No-UI"',
@@ -585,14 +592,12 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Dashed divider */}
-          <div className="my-12">
-            <div className="border-t-2 border-dashed border-[#ec4848]" />
-          </div>
+<div className="my-15">
 
+</div>
           {/* Bro illustration (center) + Detailed features (right) */}
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-            <div className="flex items-center justify-center">
+            <div className="flex items-start justify-center mt-[20px]">
               <Image
                 src="/assets/bro.svg"
                 alt="Billing illustration"
@@ -601,31 +606,79 @@ export default function Home() {
                 className="w-full max-w-[520px]"
               />
             </div>
-            <div className="space-y-6">
+                        <div className="space-y-5">
               {detailedFeatures.map((feature) => (
-                <div key={feature.title}>
-                  <div className="mb-2 flex items-center gap-2">
+                <div
+                  key={feature.title}
+                  className="flex items-start gap-[42.9px] relative"
+                >
+                  {/* Icon with crcl.svg background */}
+                  <div
+                    style={{
+                      width: 43,
+                      height: 43,
+                      borderRadius: '50%',
+                      backgroundImage: 'url(/crcl.svg)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      boxShadow: '2.86px 2.86px 10.8px 1.43px rgba(0,0,0,0.08)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      position: 'relative',
+                      zIndex: 1,
+                    }}
+                  >
                     <Image
-                      src={`${A}/769d85c0-4a14-4a45-aa9b-d12bcb93e9c9.svg`}
+                      src={featureIcons[feature.title]}
                       alt=""
-                      width={20}
-                      height={20}
-                      className="shrink-0"
+                      width={24}
+                      height={24}
+                      style={{ objectFit: 'contain' }}
                     />
-                    <h3 className="font-display text-lg font-bold text-[#221c1b]">
-                      {feature.title}
-                    </h3>
                   </div>
-                  <ul className="space-y-1 pl-7">
-                    {feature.points.map((point) => (
-                      <li
-                        key={point}
-                        className="text-sm leading-6 text-[#5f5451]"
-                      >
-                        -{point}
-                      </li>
-                    ))}
-                  </ul>
+
+                  {/* Text content */}
+                  <div className="flex-1 flex flex-col items-start gap-[10.7px] pb-5">
+                    <b
+                      style={{
+                        alignSelf: 'stretch',
+                        lineHeight: '140%',
+                        color: '#221c1b',
+                      }}
+                    >
+                      {feature.title}
+                    </b>
+                    <ul className="space-y-1.5 pl-0" style={{ opacity: 0.7 }}>
+                      {feature.points.map((point) => (
+                        <li
+                          key={point}
+                          style={{
+                            fontSize: 20,
+                            lineHeight: '150%',
+                            color: '#5f5451',
+                          }}
+                        >
+                          • {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Dashed connector — only shown for non-last items */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      left: 21,
+                      top: 43,
+                      bottom: 0,
+                      width: 0,
+                      borderRight: '2.1px dashed #ec4848',
+                      zIndex: 0,
+                      display: detailedFeatures.indexOf(feature) < detailedFeatures.length - 1 ? 'block' : 'none',
+                    }}
+                  />
                 </div>
               ))}
             </div>
