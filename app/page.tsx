@@ -11,22 +11,22 @@ const featureCards = [
   {
     icon: `${A}/e6953b17-5e8e-4047-a413-2cba45ef619d.svg`,
     title: "Zero-Touch GST Invoicing",
-    copy: "Research Generate lines to fill 60 characters from your voice entries, decode ledger codes for all 50 Indian Identity, Dealer types and more effortlessly. HSN codes, and same WhatsApp receipts old PDF format.",
+    copy: "Ramesh General Store ko 50 kilo chawal ka bill bhej do. The agent resolves identity, checks ledger for old Udhaar (credit), applies tiered discounts, calculates GST/HSN codes, and sends WhatsApp invoice with UPI link—automatically",
   },
   {
     icon: `${A}/2bd35cf7-4a4b-44de-9123-b955c44f1750.svg`,
     title: "Automatic GST Reconciliation",
-    copy: "Updates stock-level records automatically from voice entries with GSTR 2A/2B. Possible with same GST details.",
+    copy: "Automatically reconciles purchase records with GSTR-2A/2B. Proactively alerts about missing invoices.",
   },
   {
     icon: `${A}/0847cfc1-0f60-4db8-b982-8e8483096fab.svg`,
     title: "Digital Twin Inventory",
-    copy: "Tracks invoice reminders and live stock movement. Then recoup entries automatically. It forms an actual debit note/credit note.",
+    copy: "Updates stock via natural speech. Flags near-expiry items for clearance automatically.",
   },
   {
     icon: `${A}/def58c92-70ce-4fe3-b5e1-64fbcf34a034.svg`,
     title: "Autonomous Collections",
-    copy: "Tracks Accounts Receivable and sends intelligent payment reminders. E.g. - it forms an actual debit note.",
+    copy: "Tracks Accounts Receivable and sends tiered reminders (Friendly → Firm → Formal) to recover debts.",
   },
 ] as const;
 
@@ -371,7 +371,7 @@ export default function Home() {
 
             {/* Decorative circles */}
             <Image
-              src="/assets/circle.svg"
+              src="/assets/round.svg"
               alt=""
               width={86}
               height={86}
@@ -379,7 +379,7 @@ export default function Home() {
               style={{ top: -25, left: "calc(50% - 390px)" }}
             />
             <Image
-              src="/assets/circle.svg"
+              src="/assets/round.svg"
               alt=""
               width={86}
               height={86}
@@ -453,49 +453,132 @@ export default function Home() {
         {/* ─── FEATURES SECTION ─── */}
         <section
           id="features"
-          className="scroll-mt-32 px-2 py-12 lg:px-4 lg:py-20"
+          className="scroll-mt-32 px-4 py-12 lg:px-4 lg:py-20"
         >
-          {/* Top row: label + description */}
-          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-            <div className="inline-flex items-center gap-2 self-start rounded-full border border-[rgba(236,72,72,0.15)] bg-white/80 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#c84f4a]">
-              <span className="h-2 w-2 rounded-full bg-[#ec4848]" />
+          {/* Billing pill */}
+          <div
+            style={{
+              borderRadius: '12px',
+              background: 'radial-gradient(50% 50% at 50% 50%, #fff, #F7B2AC) border-box, #f7b2ac padding-box',
+              border: '1.1px solid #f7b2ac',
+              boxSizing: 'border-box',
+              width: 'auto',
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '8.6px 17.2px',
+              marginBottom: '16px',
+              fontFamily: 'Figtree, sans-serif',
+            }}
+          >
+            <div
+              style={{
+                position: 'relative',
+                lineHeight: '17.17px',
+                textTransform: 'uppercase',
+                fontWeight: 500,
+                color: '#0b0b0b',
+                fontFamily: 'Figtree, sans-serif',
+                fontSize: '15.02px',
+              }}
+            >
               Billing Made Simple
             </div>
-            <p className="max-w-md text-sm leading-6 text-[#6f6561] lg:text-right">
-              Billeif is designed to save you time and simplify your billing.
-              Here&apos;s how our powerful features help you stay on top of your
-              payments and invoice effortlessly.
-            </p>
           </div>
 
-          {/* Heading */}
-          <h2 className="font-display mb-10 max-w-2xl text-4xl leading-[1.15] font-semibold tracking-[-0.03em] text-[#211a1a] sm:text-5xl">
-            Powerful Features to Keep
-            <br />
-            <span className="font-serif italic text-[#ec4848]">
-              Your Business On Track
-            </span>
-          </h2>
+          {/* Heading + Description row */}
+          <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-10 mb-12">
+            <b
+              style={{
+                width: '100%',
+                maxWidth: '662px',
+                fontSize: 'clamp(26px, 4vw, 51.5px)',
+                lineHeight: '120%',
+                display: 'inline-block',
+                fontFamily: 'Figtree, sans-serif',
+                textAlign: 'left',
+                color: '#282828',
+                fontWeight: 700,
+              }}
+            >
+              Powerful Features to Keep{' '}
+              <span style={{ color: '#ec4848' }}>Your Business On Track</span>
+            </b>
+
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '400px',
+                fontSize: 'clamp(13px, 1.5vw, 20px)',
+                lineHeight: '150%',
+                fontFamily: 'Figtree, sans-serif',
+                color: '#0b0b0b',
+                textAlign: 'left',
+                opacity: 0.7,
+                paddingTop: '4px',
+              }}
+            >
+              Billeif is designed to save you time and simplify your billing.
+              Here&apos;s how our powerful features help you stay on top of your
+              payments and invoices effortlessly.
+            </div>
+          </div>
 
           {/* Feature cards */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {featureCards.map((feature) => (
               <article
                 key={feature.title}
-                className="rounded-2xl bg-[#fce8df] p-5"
+                style={{
+                  boxShadow: '2.86px 2.86px 10.8px 1.43px rgba(0, 0, 0, 0.05)',
+                  borderRadius: '8.58px',
+                  background: 'linear-gradient(180deg, rgba(255, 237, 213, 0) 14.42%, #fff7ed 35.1%, #fd8877)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  padding: '24px',
+                  gap: '14px',
+                }}
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/70">
+                <div style={{ width: '43px', height: '43px', position: 'relative' }}>
+                  <Image
+                    src="/assets/round.svg"
+                    alt=""
+                    width={43}
+                    height={43}
+                    style={{ position: 'absolute', top: 0, left: 0, objectFit: 'contain', zIndex: 1 }}
+                  />
                   <Image
                     src={feature.icon}
                     alt=""
                     width={20}
                     height={20}
+                    style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', objectFit: 'contain', zIndex: 2 }}
                   />
                 </div>
-                <h3 className="font-display text-base font-semibold tracking-[-0.02em] text-[#221c1b]">
+
+                <h3
+                  style={{
+                    alignSelf: 'stretch',
+                    position: 'relative',
+                    lineHeight: '130%',
+                    fontSize: 'clamp(14px, 1.5vw, 18px)',
+                    fontWeight: 700,
+                    color: '#0b0b0b',
+                    fontFamily: 'Figtree, sans-serif',
+                  }}
+                >
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-xs leading-5 text-[#71645f]">
+                <p
+                  style={{
+                    alignSelf: 'stretch',
+                    position: 'relative',
+                    fontSize: 'clamp(11px, 1vw, 14px)',
+                    lineHeight: '150%',
+                    color: '#0b0b0b',
+                    fontFamily: 'Figtree, sans-serif',
+                  }}
+                >
                   {feature.copy}
                 </p>
               </article>
