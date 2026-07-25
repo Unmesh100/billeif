@@ -9,7 +9,7 @@ const manrope = Manrope({
 });
 
 const redHatDisplay = Red_Hat_Display({
-  variable: "--font-red-hat-display",
+  variable: "--font-red-hat-display", 
   subsets: ["latin"],
 });
 
